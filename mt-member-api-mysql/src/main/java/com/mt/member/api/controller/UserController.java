@@ -12,7 +12,6 @@ import org.springframework.data.domain.Example;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,7 +48,7 @@ public class UserController {
 		
 		if (tbUserRepository.count(Example.of(example)) > 0) {
 			responseModel.setStatus("208");
-			responseModel.setError("Data already exists");
+			responseModel.setError("Email already exists");
 
 			responseEntity = new ResponseEntity<>(responseModel, HttpStatus.ALREADY_REPORTED);
 			log.info("responseEntity : " + objectMapper.writeValueAsString(responseEntity));
@@ -70,30 +69,4 @@ public class UserController {
 			return responseEntity;
 		}
 	}
-	
-	@GetMapping("/test")
-	public HttpEntity<?> test() throws Exception {
-		UserAddRequestModel userAddRequestModel = new UserAddRequestModel();
-		UserAddResponseModel responseModel = new UserAddResponseModel(userAddRequestModel);
-		
-		TbUser tbUser = tbUserRepository.findAll().get(0);
-		
-		responseModel.setTbUsers(tbUser);
-		responseModel.setStatus("200");
-		
-		ResponseEntity<?> responseEntity = new ResponseEntity<>(responseModel, HttpStatus.OK);
-		
-		return responseEntity;
-	}
-	
-	
-//	@GetMapping("/mt-member-api-mysql/gettweet/screenname/{screenName}/{pageNumber}/{pageSize}/{sort}/{sortBy}")
-//	public HttpEntity<?> getTweetUserByScreenName(@PathVariable String screenName, @PathVariable int pageNumber, @PathVariable int pageSize, @PathVariable String sort, @PathVariable String sortBy) throws JsonProcessingException {
-//		log.debug("getTweetUserByScreenName : " + objectMapper.writeValueAsString(screenName));
-//		
-//		TbTwitterUser tbTwitterUser = tbTwitterUserRepository.findByTtuScreenName(screenName);
-//		List<TbTwitterTweet> lstTbTwitterTweet = tbTwitterTweetRepository.findByTtuTid(tbTwitterUser.getTtuTid(), PageRequest.of(pageNumber, pageSize, sort.equalsIgnoreCase("asc") ? Sort.Direction.ASC : Sort.Direction.DESC, sortBy));
-//		
-//		return new ResponseEntity<>(lstTbTwitterTweet, HttpStatus.OK);
-//	}
 }
