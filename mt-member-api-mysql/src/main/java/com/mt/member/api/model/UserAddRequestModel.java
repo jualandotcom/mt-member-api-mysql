@@ -1,21 +1,10 @@
-package com.mt.member.api.model.user;
-
-import java.util.Date;
+package com.mt.member.api.model;
 
 import javax.validation.constraints.NotNull;
 
 import com.mt.member.api.model.RequestModel;
 
 public class UserAddRequestModel extends RequestModel {
-	private Integer tthTid;
-
-	private Date tbuCreateDate;
-
-	private Integer tbuCreateId;
-
-	private Date tbuUpdateDate;
-
-	private Integer tbuUpdateId;
 
 	@NotNull(message = "Email is not null")
 	private String tbuEmail;
@@ -38,46 +27,6 @@ public class UserAddRequestModel extends RequestModel {
 	private String tbuPlaceOfBirth;
 
 	private String tbuStatus;
-
-	public Integer getTthTid() {
-		return tthTid;
-	}
-
-	public void setTthTid(Integer tthTid) {
-		this.tthTid = tthTid;
-	}
-
-	public Date getTbuCreateDate() {
-		return tbuCreateDate;
-	}
-
-	public void setTbuCreateDate(Date tbuCreateDate) {
-		this.tbuCreateDate = tbuCreateDate;
-	}
-
-	public Integer getTbuCreateId() {
-		return tbuCreateId;
-	}
-
-	public void setTbuCreateId(Integer tbuCreateId) {
-		this.tbuCreateId = tbuCreateId;
-	}
-
-	public Date getTbuUpdateDate() {
-		return tbuUpdateDate;
-	}
-
-	public void setTbuUpdateDate(Date tbuUpdateDate) {
-		this.tbuUpdateDate = tbuUpdateDate;
-	}
-
-	public Integer getTbuUpdateId() {
-		return tbuUpdateId;
-	}
-
-	public void setTbuUpdateId(Integer tbuUpdateId) {
-		this.tbuUpdateId = tbuUpdateId;
-	}
 
 	public String getTbuEmail() {
 		return tbuEmail;

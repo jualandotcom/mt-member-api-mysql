@@ -1,4 +1,4 @@
-package com.mt.member.api.model.user;
+package com.mt.member.api.model;
 
 import com.mt.member.api.db.entity.TbUser;
 import com.mt.member.api.model.ResponseModel;
