@@ -30,7 +30,7 @@ public class ApplicationConfig {
 
 	@Bean
 	public Docket apiDocket() {
-		String appContexUrl = "/mt-member-api.*";
+		String appContexUrl = "/.*";
 		return new Docket(DocumentationType.SWAGGER_2).apiInfo(getApiInfo()).useDefaultResponseMessages(false)
 				.genericModelSubstitutes(ResponseEntity.class).select().paths(PathSelectors.regex(appContexUrl))
 				.apis(RequestHandlerSelectors.any()).paths(PathSelectors.any()).build();
