@@ -25,7 +25,7 @@ public class TbUser implements Serializable {
 	@Id
 	@Column(name="tbu_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer tthTid;
+	private Integer tbuId;
 
 	@Column(name="tbu_create_date")
 	private Date tbuCreateDate;
@@ -63,12 +63,12 @@ public class TbUser implements Serializable {
 	@Column(name="tbu_status")
 	private String tbuStatus;
 
-	public Integer getTthTid() {
-		return tthTid;
+	public Integer getTbuId() {
+		return tbuId;
 	}
 
-	public void setTthTid(Integer tthTid) {
-		this.tthTid = tthTid;
+	public void setTbuId(Integer tbuId) {
+		this.tbuId = tbuId;
 	}
 
 	public Date getTbuCreateDate() {
