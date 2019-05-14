@@ -22,6 +22,11 @@ import javax.persistence.Table;
 public class TbUser implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	public final static String statusCreated = "created";
+	public final static String statusNeedConfirmation = "need confirmation";
+	public final static String statusActive = "active";
+	public final static String statusNonActive = "non active";
+
 	@Id
 	@Column(name="tbu_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -62,6 +67,9 @@ public class TbUser implements Serializable {
 
 	@Column(name="tbu_status")
 	private String tbuStatus;
+
+	@Column(name="tbu_uid")
+	private String tbuUid;
 
 	public Integer getTbuId() {
 		return tbuId;
@@ -165,5 +173,29 @@ public class TbUser implements Serializable {
 
 	public void setTbuStatus(String tbuStatus) {
 		this.tbuStatus = tbuStatus;
+	}
+
+	public String getTbuUid() {
+		return tbuUid;
+	}
+
+	public void setTbuUid(String tbuUid) {
+		this.tbuUid = tbuUid;
+	}
+
+	public static String getStatuscreated() {
+		return statusCreated;
+	}
+
+	public static String getStatusneedconfirmation() {
+		return statusNeedConfirmation;
+	}
+
+	public static String getStatusactive() {
+		return statusActive;
+	}
+
+	public static String getStatusnonactive() {
+		return statusNonActive;
 	}
 }

@@ -26,8 +26,6 @@ public class UserAddRequestModel extends RequestModel {
 	@NotNull(message = "Place of birth is not null")
 	private String tbuPlaceOfBirth;
 
-	private String tbuStatus;
-
 	public String getTbuEmail() {
 		return tbuEmail;
 	}
@@ -84,11 +82,4 @@ public class UserAddRequestModel extends RequestModel {
 		this.tbuPlaceOfBirth = tbuPlaceOfBirth;
 	}
 
-	public String getTbuStatus() {
-		return tbuStatus;
-	}
-
-	public void setTbuStatus(String tbuStatus) {
-		this.tbuStatus = tbuStatus;
-	}
 }
