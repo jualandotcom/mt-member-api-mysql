@@ -1,6 +1,7 @@
 package com.mt.member.api.model;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import com.mt.member.api.model.RequestModel;
 
@@ -25,6 +26,10 @@ public class UserAddRequestModel extends RequestModel {
 
 	@NotNull(message = "Place of birth is not null")
 	private String tbuPlaceOfBirth;
+
+	@NotNull(message = "Date of birth is not null")
+	@Pattern(message="Date of birth ", regexp="^(\\d{4})(?:-([0]\\d|[1][0-2]))(?:-([0-2]\\d|[3][01]))(?:T([01]\\d|2[0-3]))(?::([0-5]\\d))(?::([0-5]\\d)(?:\\.(\\d{1,7}?)|)|)$")
+	private String tbuDateOfBirth;
 
 	public String getTbuEmail() {
 		return tbuEmail;
@@ -80,6 +85,14 @@ public class UserAddRequestModel extends RequestModel {
 
 	public void setTbuPlaceOfBirth(String tbuPlaceOfBirth) {
 		this.tbuPlaceOfBirth = tbuPlaceOfBirth;
+	}
+
+	public String getTbuDateOfBirth() {
+		return tbuDateOfBirth;
+	}
+
+	public void setTbuDateOfBirth(String tbuDateOfBirth) {
+		this.tbuDateOfBirth = tbuDateOfBirth;
 	}
 
 }

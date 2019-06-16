@@ -16,6 +16,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,9 +32,12 @@ import com.mt.member.api.model.UserAddRequestModel;
 import com.mt.member.api.model.UserAddResponseModel;
 import com.mt.member.api.model.UserConfirmationRequestModel;
 import com.mt.member.api.model.UserConfirmationResponseModel;
+import com.mt.member.api.model.UserNotifyRequestModel;
+import com.mt.member.api.model.UserNotifyResponseModel;
 import com.mt.member.api.util.MD5;
 import com.mt.member.api.util.Uid;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -90,8 +95,8 @@ public class UserController {
 	
 	@PostMapping("/notify")
 	@Transactional
-	public HttpEntity<?> postNotify(@Valid @RequestBody UserConfirmationRequestModel requestModel) throws Exception {
-		UserConfirmationResponseModel responseModel = new UserConfirmationResponseModel(requestModel);
+	public HttpEntity<?> postNotify(@Valid @RequestBody UserNotifyRequestModel requestModel) throws Exception {
+		UserNotifyResponseModel responseModel = new UserNotifyResponseModel(requestModel);
 		ResponseEntity<?> responseEntity = null;
 		
 		TbUser exampleTbUser = new TbUser();
@@ -172,5 +177,25 @@ public class UserController {
 
 			return responseEntity;
 		}
+	}
+	
+	@GetMapping("/test")
+	@Transactional
+	public HttpEntity<?> postTest() {
+//		UserConfirmationResponseModel responseModel = new UserConfirmationResponseModel(new UserConfirmationRequestModel());
+//		
+//		AuthCheckRequestModel authCheckRequestModel = new AuthCheckRequestModel();
+//		authCheckRequestModel.setRequestDate("2019-03-21T16:56:50.706");
+//		authCheckRequestModel.setRequestId("0123456789");
+//		authCheckRequestModel.setTbaEmail("achmad.amri@gmail.com");
+//		authCheckRequestModel.setTbaToken("eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJtdC1hdXRoLWFwaSIsInN1YiI6InRva2VuIiwibmFtZSI6ImFjaG1hZC5hbXJpQGdtYWlsLmNvbSIsInNjb3BlIjoiYWRtaW5zIiwiaWF0IjoxNTU4MzM5Mzk2LCJleHAiOjE1NTg0MjU3OTZ9.TrcRAG78Bkxu7R9MAagqkb5jwrU22gDFXdaPNayBlBU");
+//		
+//		if (Auth.getInstance().check(authCheckRequestModel)) {
+//			return new ResponseEntity<>(responseModel, HttpStatus.OK);
+//		} else {
+//			return new ResponseEntity<>(responseModel, HttpStatus.INTERNAL_SERVER_ERROR);
+//		}
+		UserAddRequestModel x = new UserAddRequestModel();
+		return new ResponseEntity<>(x, HttpStatus.OK);
 	}
 }

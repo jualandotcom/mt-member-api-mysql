@@ -65,6 +65,9 @@ public class TbUser implements Serializable {
 	@Column(name="tbu_place_of_birth")
 	private String tbuPlaceOfBirth;
 
+	@Column(name="tbu_date_of_birth")
+	private String tbuDateOfBirth;
+
 	@Column(name="tbu_status")
 	private String tbuStatus;
 
@@ -165,6 +168,14 @@ public class TbUser implements Serializable {
 
 	public void setTbuPlaceOfBirth(String tbuPlaceOfBirth) {
 		this.tbuPlaceOfBirth = tbuPlaceOfBirth;
+	}
+
+	public String getTbuDateOfBirth() {
+		return tbuDateOfBirth;
+	}
+
+	public void setTbuDateOfBirth(String tbuDateOfBirth) {
+		this.tbuDateOfBirth = tbuDateOfBirth;
 	}
 
 	public String getTbuStatus() {
