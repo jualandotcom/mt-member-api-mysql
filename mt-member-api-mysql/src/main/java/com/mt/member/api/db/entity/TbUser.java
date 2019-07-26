@@ -193,20 +193,4 @@ public class TbUser implements Serializable {
 	public void setTbuUid(String tbuUid) {
 		this.tbuUid = tbuUid;
 	}
-
-	public static String getStatuscreated() {
-		return statusCreated;
-	}
-
-	public static String getStatusneedconfirmation() {
-		return statusNeedConfirmation;
-	}
-
-	public static String getStatusactive() {
-		return statusActive;
-	}
-
-	public static String getStatusnonactive() {
-		return statusNonActive;
-	}
 }

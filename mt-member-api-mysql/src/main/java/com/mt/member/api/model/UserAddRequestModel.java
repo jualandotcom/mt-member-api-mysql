@@ -1,13 +1,16 @@
 package com.mt.member.api.model;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.mt.member.api.model.RequestModel;
 
 public class UserAddRequestModel extends RequestModel {
 
-	@NotNull(message = "Email is not null")
+	@Email(message = "Email should be valid")
 	private String tbuEmail;
 
 	@NotNull(message = "Password is not null")
@@ -28,7 +31,8 @@ public class UserAddRequestModel extends RequestModel {
 	private String tbuPlaceOfBirth;
 
 	@NotNull(message = "Date of birth is not null")
-	@Pattern(message="Date of birth ", regexp="^(\\d{4})(?:-([0]\\d|[1][0-2]))(?:-([0-2]\\d|[3][01]))(?:T([01]\\d|2[0-3]))(?::([0-5]\\d))(?::([0-5]\\d)(?:\\.(\\d{1,7}?)|)|)$")
+//	@Pattern(message="Date of birth ", regexp="^(\\d{4})(?:-([0]\\d|[1][0-2]))(?:-([0-2]\\d|[3][01]))(?:T([01]\\d|2[0-3]))(?::([0-5]\\d))(?::([0-5]\\d)(?:\\.(\\d{1,7}?)|)|)$")
+	@Pattern(message="Date of birth is not valid", regexp="^(\\d{4})(?:-([0]\\d|[1][0-2]))(?:-([0-2]\\d|[3][01]))$")
 	private String tbuDateOfBirth;
 
 	public String getTbuEmail() {

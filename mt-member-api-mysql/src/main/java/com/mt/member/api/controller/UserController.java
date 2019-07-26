@@ -69,7 +69,7 @@ public class UserController {
 		
 		if (tbUserRepository.count(Example.of(exampleTbUser)) > 0) {
 			responseModel.setStatus("208");
-			responseModel.setError("Email already exists");
+			responseModel.setMessage("Email already exists");
 
 			responseEntity = new ResponseEntity<>(responseModel, HttpStatus.ALREADY_REPORTED);
 			log.info("postAdd responseEntity : " + objectMapper.writeValueAsString(responseEntity));
@@ -85,6 +85,7 @@ public class UserController {
 			
 			responseModel.setTbUsers(tbUser);
 			responseModel.setStatus("200");
+			responseModel.setMessage("User created");
 
 			responseEntity = new ResponseEntity<>(responseModel, HttpStatus.OK);
 			log.info("postAdd responseEntity : " + objectMapper.writeValueAsString(responseEntity));
@@ -103,21 +104,21 @@ public class UserController {
 		exampleTbUser.setTbuUid(requestModel.getTbuUid());
 		exampleTbUser.setTbuStatus(TbUser.statusCreated);
 		
-		Optional<TbUser> optTbUser = tbUserRepository.findOne(Example.of(exampleTbUser));
-		
 		if (tbUserRepository.count(Example.of(exampleTbUser)) > 0) {
+			Optional<TbUser> optTbUser = tbUserRepository.findOne(Example.of(exampleTbUser));
 			optTbUser.get().setTbuUpdateDate(new Date());
 			optTbUser.get().setTbuUpdateId(0);
 			optTbUser.get().setTbuStatus(TbUser.statusNeedConfirmation);
 			
 			SimpleMailMessage message = new SimpleMailMessage();
-	        message.setTo("achmad.amri@alfadigital.id");
+	        message.setTo(optTbUser.get().getTbuEmail());
 	        message.setSubject("confirmation");
 	        message.setText("you need to confirm your account with this link http://mintol.com/confirmation.html");
 	        javaMailSender.send(message);
 			
 			responseModel.setTbUsers(optTbUser.get());
 			responseModel.setStatus("200");
+			responseModel.setMessage("User notified");
 			
 			responseEntity = new ResponseEntity<>(responseModel, HttpStatus.OK);
 			log.info("postNotify responseEntity : " + objectMapper.writeValueAsString(responseEntity));
@@ -163,6 +164,7 @@ public class UserController {
 			
 			responseModel.setTbUsers(optTbUser.get());
 			responseModel.setStatus("200");
+			responseModel.setMessage("User confirmed");
 			
 			responseEntity = new ResponseEntity<>(responseModel, HttpStatus.OK);
 			log.info("postConfirmation responseEntity : " + objectMapper.writeValueAsString(responseEntity));
