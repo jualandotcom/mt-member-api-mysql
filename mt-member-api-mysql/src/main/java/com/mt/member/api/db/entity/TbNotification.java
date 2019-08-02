@@ -28,80 +28,102 @@ public class TbNotification implements Serializable {
 	@Id
 	@Column(name="tbn_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer tbuId;
+	private Integer tbnId;
 
 	@Column(name="tbn_create_date")
-	private Date tbuCreateDate;
+	private Date tbnCreateDate;
 
 	@Column(name="tbn_create_id")
-	private Integer tbuCreateId;
+	private Integer tbnCreateId;
 
 	@Column(name="tbn_update_date")
-	private Date tbuUpdateDate;
+	private Date tbnUpdateDate;
 
 	@Column(name="tbn_update_id")
-	private Integer tbuUpdateId;
+	private Integer tbnUpdateId;
+	
+	@Column(name="tbn_code")
+	private String tbnCode;
+	
+	@Column(name="tbn_subject")
+	private String tbnSubject;
 
 	@Column(name="tbn_html")
-	private String tbuHtml;
+	private String tbnHtml;
 
 	@Column(name="tbn_status")
-	private String tbuStatus;
+	private String tbnStatus;
 
-	public Integer getTbuId() {
-		return tbuId;
+	public Integer getTbnId() {
+		return tbnId;
 	}
 
-	public void setTbuId(Integer tbuId) {
-		this.tbuId = tbuId;
+	public void setTbnId(Integer tbnId) {
+		this.tbnId = tbnId;
 	}
 
-	public Date getTbuCreateDate() {
-		return tbuCreateDate;
+	public Date getTbnCreateDate() {
+		return tbnCreateDate;
 	}
 
-	public void setTbuCreateDate(Date tbuCreateDate) {
-		this.tbuCreateDate = tbuCreateDate;
+	public void setTbnCreateDate(Date tbnCreateDate) {
+		this.tbnCreateDate = tbnCreateDate;
 	}
 
-	public Integer getTbuCreateId() {
-		return tbuCreateId;
+	public Integer getTbnCreateId() {
+		return tbnCreateId;
 	}
 
-	public void setTbuCreateId(Integer tbuCreateId) {
-		this.tbuCreateId = tbuCreateId;
+	public void setTbnCreateId(Integer tbnCreateId) {
+		this.tbnCreateId = tbnCreateId;
 	}
 
-	public Date getTbuUpdateDate() {
-		return tbuUpdateDate;
+	public Date getTbnUpdateDate() {
+		return tbnUpdateDate;
 	}
 
-	public void setTbuUpdateDate(Date tbuUpdateDate) {
-		this.tbuUpdateDate = tbuUpdateDate;
+	public void setTbnUpdateDate(Date tbnUpdateDate) {
+		this.tbnUpdateDate = tbnUpdateDate;
 	}
 
-	public Integer getTbuUpdateId() {
-		return tbuUpdateId;
+	public Integer getTbnUpdateId() {
+		return tbnUpdateId;
 	}
 
-	public void setTbuUpdateId(Integer tbuUpdateId) {
-		this.tbuUpdateId = tbuUpdateId;
+	public void setTbnUpdateId(Integer tbnUpdateId) {
+		this.tbnUpdateId = tbnUpdateId;
 	}
 
-	public String getTbuHtml() {
-		return tbuHtml;
+	public String getTbnCode() {
+		return tbnCode;
 	}
 
-	public void setTbuHtml(String tbuHtml) {
-		this.tbuHtml = tbuHtml;
+	public void setTbnCode(String tbnCode) {
+		this.tbnCode = tbnCode;
 	}
 
-	public String getTbuStatus() {
-		return tbuStatus;
+	public String getTbnSubject() {
+		return tbnSubject;
 	}
 
-	public void setTbuStatus(String tbuStatus) {
-		this.tbuStatus = tbuStatus;
+	public void setTbnSubject(String tbnSubject) {
+		this.tbnSubject = tbnSubject;
+	}
+
+	public String getTbnHtml() {
+		return tbnHtml;
+	}
+
+	public void setTbnHtml(String tbnHtml) {
+		this.tbnHtml = tbnHtml;
+	}
+
+	public String getTbnStatus() {
+		return tbnStatus;
+	}
+
+	public void setTbnStatus(String tbnStatus) {
+		this.tbnStatus = tbnStatus;
 	}
 
 }
